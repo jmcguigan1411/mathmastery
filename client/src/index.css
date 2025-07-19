@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(160, 84%, 39%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(271, 91%, 65%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(32, 95%, 44%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --error: hsl(0, 84%, 60%);
+  --error-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(160, 84%, 39%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(271, 91%, 65%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(32, 95%, 44%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --error: hsl(0, 84%, 60%);
+  --error-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Mathematical typography enhancements */
+  .math-content {
+    font-family: 'Computer Modern', 'Latin Modern Math', 'Times New Roman', serif;
+  }
+
+  /* Interactive graph styling */
+  .graph-container {
+    background: linear-gradient(135deg, hsl(207, 90%, 97%) 0%, hsl(0, 0%, 100%) 100%);
+  }
+
+  /* Course level indicators */
+  .level-beginner {
+    background: linear-gradient(135deg, hsl(160, 84%, 45%) 0%, hsl(160, 84%, 35%) 100%);
+  }
+
+  .level-intermediate {
+    background: linear-gradient(135deg, hsl(207, 90%, 60%) 0%, hsl(207, 90%, 50%) 100%);
+  }
+
+  .level-advanced {
+    background: linear-gradient(135deg, hsl(271, 91%, 70%) 0%, hsl(271, 91%, 60%) 100%);
+  }
+
+  /* Progress indicators */
+  .progress-high {
+    background: hsl(160, 84%, 39%);
+  }
+
+  .progress-medium {
+    background: hsl(207, 90%, 54%);
+  }
+
+  .progress-low {
+    background: hsl(25, 95%, 53%);
+  }
+
+  /* Quiz and interactive elements */
+  .quiz-option:hover {
+    border-color: hsl(207, 90%, 54%);
+    background-color: hsl(207, 90%, 97%);
+  }
+
+  .quiz-option.selected {
+    border-color: hsl(207, 90%, 54%);
+    background-color: hsl(207, 90%, 95%);
+  }
+
+  /* Achievement badges */
+  .achievement-gold {
+    background: linear-gradient(135deg, hsl(45, 100%, 60%) 0%, hsl(45, 100%, 50%) 100%);
+  }
+
+  .achievement-silver {
+    background: linear-gradient(135deg, hsl(0, 0%, 75%) 0%, hsl(0, 0%, 65%) 100%);
+  }
+
+  .achievement-bronze {
+    background: linear-gradient(135deg, hsl(25, 75%, 65%) 0%, hsl(25, 75%, 55%) 100%);
+  }
+
+  /* Responsive text sizing for mathematical content */
+  .math-formula {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.4;
+  }
+
+  /* Custom scrollbar for lesson sidebar */
+  .lesson-sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .lesson-sidebar::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 95%);
+  }
+
+  .lesson-sidebar::-webkit-scrollbar-thumb {
+    background: hsl(207, 90%, 54%);
+    border-radius: 3px;
+  }
+
+  /* Smooth transitions for interactive elements */
+  .interactive-element {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Focus states for accessibility */
+  .focus-visible:focus-visible {
+    outline: 2px solid hsl(207, 90%, 54%);
+    outline-offset: 2px;
+  }
+
+  /* Custom button hover states */
+  .btn-primary:hover {
+    background: hsl(207, 90%, 48%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsla(207, 90%, 54%, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background: hsl(160, 84%, 35%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsla(160, 84%, 39%, 0.3);
+  }
+
+  /* Loading animations */
+  @keyframes pulse-math {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .loading-math {
+    animation: pulse-math 1.5s ease-in-out infinite;
+  }
+
+  /* Graph grid styling */
+  .graph-grid {
+    stroke: hsl(0, 0%, 90%);
+    stroke-width: 1;
+    opacity: 0.7;
+  }
+
+  .graph-axis {
+    stroke: hsl(0, 0%, 40%);
+    stroke-width: 2;
+  }
+
+  .graph-function {
+    stroke: hsl(207, 90%, 54%);
+    stroke-width: 3;
+    fill: none;
+  }
+
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .mobile-nav {
+      background: hsla(0, 0%, 100%, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
+    .course-card {
+      margin-bottom: 1rem;
+    }
+    
+    .lesson-content {
+      padding: 1rem;
+    }
+  }
+
+  /* Dark mode mathematical content adjustments */
+  .dark .math-content {
+    color: hsl(0, 0%, 95%);
+  }
+
+  .dark .graph-container {
+    background: linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 3.9%) 100%);
+  }
+
+  .dark .graph-grid {
+    stroke: hsl(0, 0%, 20%);
+  }
+
+  .dark .graph-axis {
+    stroke: hsl(0, 0%, 60%);
+  }
+}
+
+/* Utility classes for mathematical layouts */
+.math-container {
+  @apply max-w-4xl mx-auto;
+}
+
+.formula-display {
+  @apply bg-slate-50 rounded-lg p-4 text-center font-mono text-xl;
+}
+
+.dark .formula-display {
+  @apply bg-slate-800;
+}
+
+/* Course difficulty indicators */
+.difficulty-easy {
+  @apply bg-green-100 text-green-800;
+}
+
+.difficulty-medium {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.difficulty-hard {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.dark .difficulty-easy {
+  @apply bg-green-900 text-green-200;
+}
+
+.dark .difficulty-medium {
+  @apply bg-blue-900 text-blue-200;
+}
+
+.dark .difficulty-hard {
+  @apply bg-purple-900 text-purple-200;
+}
+
+/* Interactive element states */
+.interactive-active {
+  @apply ring-2 ring-primary ring-opacity-50;
+}
+
+.quiz-correct {
+  @apply border-green-500 bg-green-50;
+}
+
+.quiz-incorrect {
+  @apply border-red-500 bg-red-50;
+}
+
+.dark .quiz-correct {
+  @apply border-green-400 bg-green-900 bg-opacity-30;
+}
+
+.dark .quiz-incorrect {
+  @apply border-red-400 bg-red-900 bg-opacity-30;
+}
+
+/* Progress animations */
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+.progress-animated {
+  animation: progress-fill 1s ease-out;
+}
+
+/* Achievement notification styles */
+.achievement-notification {
+  @apply fixed top-4 right-4 z-50 bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-lg shadow-lg;
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
